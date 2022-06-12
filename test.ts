@@ -15,7 +15,7 @@ Deno.test("getPublicIpAddress", async () => {
         console.warn("error", error);
         console.warn("message", String(error));
         if (
-            String(error).includes("Network is unreachable")
+            String(error).includes("error sending request for url")
         ) {
             return;
         }
