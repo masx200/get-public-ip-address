@@ -1,6 +1,12 @@
-import { assert } from "https://deno.land/std@0.143.0/testing/asserts.ts";
-
-export function check_response_ok(response: Response) {
+export async function check_response_ok(response: Response) {
     const { status, url } = response;
-    assert(response.ok, "response failure:" + JSON.stringify({ status, url }));
+    if (!response.ok) {
+        const body = await response.text();
+        throw Error(
+            "response failure ok:" +
+                JSON.stringify({ status, url }) +
+                "\n" +
+                body,
+        );
+    }
 }

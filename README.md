@@ -8,4 +8,4 @@ https://www.ipify.org/
 
 适用于deno
 
-https://deno.land/x/masx200_get_public_ip_address
+https://deno.land/x/masx200_get_public_ip_address/mod.ts

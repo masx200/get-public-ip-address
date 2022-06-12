@@ -4,7 +4,7 @@ import { check_response_ok } from "./check_response_ok.ts";
 
 export async function getPublicIpv6() {
     const response = await fetch("https://api6.ipify.org/");
-    check_response_ok(response);
+    await check_response_ok(response);
     const text = await response.text();
     assert(isIPv6(text), "isIPv6");
     return text;

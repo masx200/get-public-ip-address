@@ -4,7 +4,7 @@ import { check_response_ok } from "./check_response_ok.ts";
 
 export async function getPublicIpv4() {
     const response = await fetch("https://api4.ipify.org/");
-    check_response_ok(response);
+    await check_response_ok(response);
     const text = await response.text();
     assert(isIPv4(text), "isIPv4");
     return text;
