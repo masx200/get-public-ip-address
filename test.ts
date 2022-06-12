@@ -12,8 +12,8 @@ Deno.test("getPublicIpAddress", async () => {
     try {
         console.log(await getPublicIpAddress());
     } catch (error) {
-        console.warn(error);
-        console.warn(String(error));
+        console.warn('error',error);
+        console.warn('message',String(error));
         if (
            
             String(error).includes("Network is unreachable")
