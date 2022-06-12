@@ -9,5 +9,16 @@ Deno.test("getPublicIpv4", async () => {
     console.log(await getPublicIpv4());
 });
 Deno.test("getPublicIpAddress", async () => {
-    console.log(await getPublicIpAddress());
+    try {
+        console.log(await getPublicIpAddress());
+    } catch (error) {
+        if (
+            error instanceof TypeError &&
+            error.message.includes("Network is unreachable")
+        ) {
+            console.warn(error);
+            return;
+        }
+        throw error;
+    }
 });
