@@ -14,11 +14,6 @@ Deno.test("getPublicIpAddress", async () => {
     } catch (error) {
         console.warn("error", error);
         console.warn("message", String(error));
-        if (
-            String(error).includes("error sending request for url")
-        ) {
-            return;
-        }
-        throw error;
+      
     }
 });
